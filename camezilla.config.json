@@ -7,7 +7,9 @@
     "pages": "pages/",
     "resources": "resources/",
     "texts": {
-        "enabled": false
+        "enabled": true,
+        "path": "resources/texts/texts.json",
+        "default-language": "it"
     },
     "autoload": {
         "namespaces": {
@@ -20,7 +22,7 @@
         "host": "localhost",
         "user": "root",
         "password": "",
-        "name": "my_db",
+        "name": "cinema_newspaper_db",
         "error-page": "error.php"
     },
     "authentication": {

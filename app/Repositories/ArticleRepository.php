@@ -28,10 +28,10 @@ class ArticleRepository extends Repository{
                     $row['id'],
                     $row['title'],
                     $row['description'],
-                    $row['category'] ? Category::from($row['category']) : null,
+                    Category::from($row['category']),
                     $row['link'],
                     $row['text'],
-                    $row['priority_level'] ?? PriorityLevel::from($row['priority_level']),
+                    PriorityLevel::from($row['priority_level']),
                     $row['author'],
                     new DateTime($row['date'])
                 );
@@ -58,10 +58,10 @@ class ArticleRepository extends Repository{
                     $row['id'],
                     $row['title'],
                     $row['description'],
-                    $row['category'] ? Category::from($row['category']) : null,
+                    Category::from($row['category']),
                     $row['link'],
                     $row['text'],
-                    $row['priority_level'] ?? PriorityLevel::from($row['priority_level']),
+                    PriorityLevel::from($row['priority_level']),
                     $row['author'],
                     new DateTime($row['date'])
                 );
@@ -124,6 +124,8 @@ class ArticleRepository extends Repository{
 			$query->execute([
 				'id' => $id
 			]);
+
+			log_debug($id);
 		} catch (Exception $e) {
 			throw new RepositoryErrorException("Error deleting article: " . $e->getMessage());
 		}

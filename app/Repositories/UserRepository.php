@@ -25,13 +25,18 @@ class UserRepository extends Repository {
             $row = $query->fetch();
 
             if ($row !== false) {
+                $role = Role::tryFrom($row['role']);
+                if ($role === null) {
+                    throw new RepositoryErrorException("Invalid role value: " . ($row['role'] ?? 'null'));
+                }
+
                 return new User(
                     $row['id'],
                     $row['first_name'],
                     $row['last_name'],
                     $row['email'],
                     $row['password_hash'],
-                    $row['role'] ?? Role::from($row['role'])
+                    $role
                 );
             }
             
@@ -52,13 +57,18 @@ class UserRepository extends Repository {
             $row = $query->fetch();
 
             if ($row !== false) {
+                $role = Role::tryFrom($row['role']);
+                if ($role === null) {
+                    throw new RepositoryErrorException("Invalid role value: " . ($row['role'] ?? 'null'));
+                }
+
                 return new User(
                     $row['id'],
                     $row['first_name'],
                     $row['last_name'],
                     $row['email'],
                     $row['password_hash'],
-                    $row['role'] ?? Role::from($row['role'])
+                    $role
                 );
             }
             

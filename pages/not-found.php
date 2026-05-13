@@ -15,4 +15,4 @@ $page = new class extends Page {
     }
 };
 
-$page->render();
+echo $page->render();

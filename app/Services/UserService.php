@@ -86,7 +86,7 @@ class UserService extends Service {
         if ($user->get_email() === null || !StringUtils::is_valid_email($user->get_email())) {
             throw new ServiceErrorException(t("validation.user.error.email"));
         }
-        if ($user->get_password_hash() === null || !StringUtils::is_valid_password($user->get_password_hash(), 12)) {
+        if ($user->get_password_hash() === null || !StringUtils::is_valid_password($user->get_password_hash(), 8)) {
             throw new ServiceErrorException(t("validation.user.error.password"));
         }
         if ($user->get_role() === null || !Role::tryFrom($user->get_role()->value)) {

@@ -1,5 +1,5 @@
 {
-    "url": "http://repo/cinema-newspaper/",
+    "url": "http://localhost/repo/cinema-newspaper/",
     "base-directory": "repo/cinema-newspaper/",
     "log-file": "app.log",
     "actions": "actions/",
@@ -22,7 +22,7 @@
         "host": "localhost",
         "user": "root",
         "password": "",
-        "name": "cinema_newspaper_db",
+        "name": "cinema_newspaper",
         "error-page": "error.php"
     },
     "authentication": {

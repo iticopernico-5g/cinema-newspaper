@@ -61,8 +61,6 @@ class ArticleService extends Service {
     }
 
     public function delete(Article $article) {
-        $this->validate_article($article);
-
         if ($this->articleRepository->get_by_id($article->get_id()) === null) {
             throw new ServiceErrorException(t("service.article.error.not_found"));
         }

@@ -18,7 +18,7 @@ $page = new class extends Page {
 
         parent::__construct(new MainLayout("Modifica Articolo"), function () use ($article) { ?>
 
-            <h1>Modifica Articolo</h1>
+            <h1 class="x">Modifica Articolo</h1>
 
             <?= new ArticleForm('index.php', $article) ?>
             

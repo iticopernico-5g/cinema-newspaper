@@ -1,0 +1,398 @@
+/* =========================================
+   1. RESET E BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa; /* Sfondo chiaro come nella pagina articoli */
+    color: #333;
+}
+
+/* =========================================
+   2. HEADER (Coerente con Articoli)
+   ========================================= */
+.dark-header {
+    background-color: #0d47a1; 
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-area .logo {
+    width: 45px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.academy-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.sub-title {
+    font-size: 0.8rem;
+    color: #d1c4e9;
+}
+
+/* =========================================
+   3. MENU FILTRI (Uguale a pagina articoli)
+   ========================================= */
+.filter-menu {
+    background-color: #0b3d91;
+    padding: 15px 0;
+    width: 100%; /* Occupa tutta la larghezza */
+}
+
+.menu-wrapper {
+    display: flex;
+    justify-content: center; /* Centra il contenuto (hamburger o ul) */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.filter-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra i link orizzontalmente */
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.filter-menu li a {
+    color: #90caf9;
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.3s ease;
+}
+
+.filter-menu li a:hover,
+.filter-menu li a.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* =========================================
+   4. HERO / DESCRIPTION SECTION
+   ========================================= */
+.description-section {
+    background-color: #1a237e; /* Blu profondo come la hero degli articoli */
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.description-section h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.description-section p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: #e3f2fd;
+}
+
+/* =========================================
+   5. SLIDER SECTION (Corretta per Full Width)
+   ========================================= */
+.slider-section {
+    /* Rimosso background-image qui se vuoi che si vedano solo le foto dello slider */
+    background-color: #000; 
+    padding: 0; /* Rimosso padding per far toccare i bordi */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Rimuoviamo il filtro scuro sopra se vogliamo vedere bene le foto, 
+   o lo teniamo se le foto sono solo di sfondo */
+.slider-section::before {
+    display: none; /* Disattivato per dare priorità alle immagini dello slider */
+}
+
+.mySwiper {
+    width: 100%;    /* Occupa tutta la larghezza disponibile */
+    max-width: 100%; /* Rimosso il limite di 1000px */
+    margin: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 600px;    /* Aumentato per un effetto più scenografico "Hero" */
+    object-fit: cover; /* Fondamentale: riempie lo spazio senza deformare */
+    border-radius: 0;  /* Tolto il raggio se vuoi che tocchi i bordi dello schermo */
+    box-shadow: none;
+    display: block;
+}
+
+/* =========================================
+   6. NEWS SECTION & CARDS (Stile "Articoli")
+   ========================================= */
+.news-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.news-header h2 {
+    color: #0d47a1;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(13, 71, 161, 0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    color: #0d47a1;
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.card-content p {
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.read-more {
+    margin-top: auto;
+    color: #2962ff;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s ease;
+}
+
+.read-more:hover {
+    gap: 15px;
+    text-decoration: underline;
+}
+
+
+
+/* =========================================
+   8. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+/* Aggiungi questo PRIMA della media query (stile generale hamburger) */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Modifica la Media Query esistente così */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Appare su mobile */
+        margin: 0 auto 10px auto; /* Centrato */
+    }
+
+    .filter-menu ul {
+        display: none; /* Nascondiamo la lista di base */
+        flex-direction: column;
+        background-color: #0b3d91;
+        width: 100%;
+        padding: 0;
+        gap: 0;
+    }
+
+    /* Classe che useremo con JavaScript per mostrare il menu */
+    .filter-menu ul.show {
+        display: flex;
+    }
+
+    .filter-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .filter-menu li a {
+        padding: 15px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* Animazione a X quando clicchi */
+    .hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+@media (max-width: 768px) {
+    
+    /* Ridimensionamento Header */
+    .dark-header {
+        padding: 15px 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* Menu Filtri: abilita lo scroll orizzontale se i link sono troppi */
+    .filter-menu ul {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0 20px;
+        gap: 20px;
+        /* Nasconde la barra di scroll su alcuni browser ma permette il trascinamento */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-menu li a {
+        white-space: nowrap; /* Evita che il testo vada a capo */
+        font-size: 0.85rem;
+    }
+
+    /* Hero / Description Section */
+    .description-section {
+        padding: 50px 20px;
+    }
+
+    .description-section h1 {
+        font-size: 2rem; /* Titolo più piccolo per mobile */
+    }
+
+    .description-section p {
+        font-size: 1rem;
+    }
+
+    /* Slider: riduce l'altezza per non coprire tutto lo schermo */
+    .swiper-slide img {
+        height: 350px; 
+    }
+
+    /* News Grid: forza una sola colonna */
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .news-header h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Footer Responsive */
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+
+    .footer-col ul li {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+/* Ottimizzazione extra per schermi molto piccoli (es. iPhone SE) */
+@media (max-width: 480px) {
+    .description-section h1 {
+        font-size: 1.7rem;
+    }
+    
+    .swiper-slide img {
+        height: 250px;
+    }
+}
+

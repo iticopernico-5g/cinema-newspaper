@@ -4,6 +4,7 @@ require_once __DIR__ . '/../camezilla/camezilla.php';
 use App\Components\Article;
 use App\Components\ArticleForm;
 use App\Components\ArticleItem;
+use App\Components\Navbar;
 use App\Layouts\MainLayout;
 use App\Services\ArticleService;
 use Camezilla\Pages\Page;
@@ -18,8 +19,6 @@ $page = new class extends Page {
 
         parent::__construct(new MainLayout("Home"), function () use ($articles) { ?>
 
-            <h1>Home - Articoli</h1>
-
             <?= new ArticleForm('index.php') ?>
 
             <?php foreach ($articles as $article): ?>
@@ -27,7 +26,6 @@ $page = new class extends Page {
             <?php endforeach; ?>            
 
             <a href="<?= action('authentication.php', 'logout', 'index.php') ?>">Logout</a>
-            
         <?php });
     }
 };

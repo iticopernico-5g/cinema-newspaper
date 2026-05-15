@@ -11,7 +11,7 @@ $dispatcher = new Dispatcher(page('not-found.php'), page('error.php'));
 $articleService = new ArticleService();
 
 $dispatcher->post('create', function($params) use ($articleService) {
-    $article = new Article(null, $params['title'], $params['description'], Category::PressReview, "link", $params['text'], PriorityLevel::MEDIUM, "Autore Anonimo", new DateTime());
+    $article = new Article(null, $params['title'], $params['description'], Category::from($params['category']), $params['link'], $params['text'], PriorityLevel::from($params['priority_level']), $params['author'], $params['date']);
     
     try {
         $articleService->create($article);
@@ -22,7 +22,7 @@ $dispatcher->post('create', function($params) use ($articleService) {
 });
 
 $dispatcher->post('update', function($params) use ($articleService) {
-    $article = new Article($params['id'], $params['title'], $params['description'], Category::PressReview, "link", $params['text'], PriorityLevel::MEDIUM, "Autore Anonimo", new DateTime());
+    $article = new Article($params['id'], $params['title'], $params['description'], Category::from($params['category']), $params['link'], $params['text'], PriorityLevel::from($params['priority_level']), $params['author'], $params['date']);
     
     try {
         $articleService->update($article);

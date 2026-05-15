@@ -37,6 +37,10 @@ class UserService extends Service {
     public function create(User $user) {
         $this->validate_user($user);
 
+        if ($user->get_password_hash() === null || !StringUtils::is_valid_password($user->get_password_hash())) {
+            throw new ServiceErrorException(t("validation.user.error.password"));
+        }
+
         if ($this->userRepository->get_by_email($user->get_email()) !== null) {
             throw new ServiceErrorException(t("service.user.error.email_exists"));
         }
@@ -63,8 +67,6 @@ class UserService extends Service {
     }
 
     public function delete(User $user) {
-        $this->validate_user($user);
-
         if ($this->userRepository->get_by_id($user->get_id()) === null) {
             throw new ServiceErrorException(t("service.user.error.not_found"));
         }
@@ -85,9 +87,6 @@ class UserService extends Service {
         }
         if ($user->get_email() === null || !StringUtils::is_valid_email($user->get_email())) {
             throw new ServiceErrorException(t("validation.user.error.email"));
-        }
-        if ($user->get_password_hash() === null || !StringUtils::is_valid_password($user->get_password_hash(), 8)) {
-            throw new ServiceErrorException(t("validation.user.error.password"));
         }
         if ($user->get_role() === null || !Role::tryFrom($user->get_role()->value)) {
             throw new ServiceErrorException(t("validation.user.error.role"));

@@ -5,6 +5,12 @@
     "service.article.error.get_by_id": {
         "it": "Errore durante il recupero dell'articolo."
     },
+    "service.article.error.get_recent": {
+        "it": "Errore durante il recupero degli articoli recenti."
+    },
+    "service.article.error.get_by_category": {
+        "it": "Errore durante il recupero degli articoli per categoria."
+    },
     "service.article.error.create": {
         "it": "Errore durante la creazione dell'articolo."
     },
@@ -37,6 +43,9 @@
     },
     "service.authentication.error.missing_credentials": {
         "it": "Credenziali mancanti."
+    },
+    "service.user.error.get_all": {
+        "it": "Errore durante il recupero degli utenti."
     },
     "service.user.error.get_by_id": {
         "it": "Errore durante il recupero dell'utente."

@@ -9,6 +9,9 @@ use Camezilla\Pages\Page;
 $page = new class extends Page {
 
     public function __construct() {
+        $viewService = new ViewService();
+        $viewService->increase();
+        
         $articleService = new ArticleService();
         $recentArticles = $articleService->get_recent();
 

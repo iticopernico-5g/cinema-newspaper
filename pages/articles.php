@@ -8,6 +8,8 @@ use App\Services\ArticleService;
 use Camezilla\Pages\Page;
 
 $page = new class extends Page {
+    $viewService = new ViewService();
+    $viewService->increase();
 
     public function __construct() {
         $articleService = new ArticleService();

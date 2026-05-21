@@ -9,6 +9,9 @@ use Camezilla\Pages\Page;
 $page = new class extends Page {
 
     public function __construct() {
+        $viewService = new ViewService();
+        $viewService->increase();
+        
         $mode = $_GET['mode'] ?? 'login';
 
         parent::__construct(new MainLayout("Login"), function ($mode) { ?>

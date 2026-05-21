@@ -10,6 +10,9 @@ use Camezilla\Pages\Page;
 $page = new class extends Page {
 
     public function __construct() {
+        $viewService = new ViewService();
+        $viewService->increase();
+        
         $articleService = new ArticleService();
         $articles = $articleService->get_by_category(Category::PressReview);
 
